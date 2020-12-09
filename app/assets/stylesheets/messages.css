@@ -17,12 +17,18 @@
 .side_box{
   height: 100px;
   padding: 0 20px;
+  background-color: #253141;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .rooms_bar{
   height: calc(100vh - 100px);
   background-color: #2F3E51;
   padding: 0 20px;
+  overflow: scroll;
+}
 }
 
 .main_box{
@@ -42,3 +48,26 @@
   padding: 20px 40px
 }
 
+.name a{
+  color: #FAFAFA;
+  font-size: 16px;
+  height: 100%;
+  text-decoration: none;
+}
+
+.new_chat a{
+  font-size: 10px;
+  border: 1px solid lightblue;
+  padding: 14px;
+  color: deepskyblue;
+  text-decoration: none;
+}
+
+.room_name{
+   padding: 20px 20px 40px 0;
+}
+
+a{
+  text-decoration: none;
+  color: white;
+}

@@ -1,54 +1,27 @@
 <div class = "main_box">
   <div class = "current_chat">
-    <div class = "header_title">hogefuga</div>
+    <div class = "header_title">
+    <%= @room.name %>
+    </div>
   </div>
   <div class ="end_chat">
     <div class = "header_button">
-      <a href = "#">チャットを終了する</a>
+    <%= link_to "チャットを終了する", room_path(@room), method: :delete %>
     </div>
   </div>
 </div>
 
 <div class = "chat_main">
-  <div class = "message">
-    <div class = "upper_message">
-      <div class = "name">
-      Taro
-      </div>
-      <div class = "date">
-      2020/3/31(Wed) 12:43:30
-      </div>
-    </div>
-    <div class = "lower_message">
-      <div class = "msg">
-      こんにちは
-      </div>
-    </div>
-  </div>
-  <div class = "message">
-    <div class = "upper_message">
-      <div class = "name">
-      Yuki
-      </div>
-      <div class = "date">
-      2020/3/31(Wed) 12:43:49
-      </div>
-    </div>
-    <div class = "lower_message">
-      <div class = "msg">
-      こんばんは
-      </div>
-    </div>
-  </div>
+  <%= render partial: "message", collection: @messages%>
 </div>
 
-<div class = "form">
+<%= form_with model: [@room, @message], class: "form", local: true do |f|%>
   <div class = "form_bar">
-    <input type = "text" placeholder ="type a message" class= "type_message">
+    <%= f.text_field :content, placeholder: "type a message", class: "type_message"%>
     <label class= "form_image">
       <span class = "image_file">画像</span>
-      <input type = "file" class= "hidden">
+      <%= f.file_field :image, class: "hidden"%>
     </label>
   </div>
-  <input type ="submit" value = "送信" class = "send">
-</div>
+  <%= f.submit '送信', class: "send"%>
+<% end %>

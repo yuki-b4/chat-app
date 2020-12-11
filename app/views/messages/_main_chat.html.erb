@@ -1,6 +1,8 @@
 <div class = "main_box">
   <div class = "current_chat">
-    <div class = "header_title">hogefuga</div>
+    <div class = "header_title">
+    <%= @room.name %>
+    </div>
   </div>
   <div class ="end_chat">
     <div class = "header_button">
@@ -10,36 +12,7 @@
 </div>
 
 <div class = "chat_main">
-  <div class = "message">
-    <div class = "upper_message">
-      <div class = "name">
-      Taro
-      </div>
-      <div class = "date">
-      2020/3/31(Wed) 12:43:30
-      </div>
-    </div>
-    <div class = "lower_message">
-      <div class = "msg">
-      こんにちは
-      </div>
-    </div>
-  </div>
-  <div class = "message">
-    <div class = "upper_message">
-      <div class = "name">
-      Yuki
-      </div>
-      <div class = "date">
-      2020/3/31(Wed) 12:43:49
-      </div>
-    </div>
-    <div class = "lower_message">
-      <div class = "msg">
-      こんばんは
-      </div>
-    </div>
-  </div>
+  <%= render partial: "message", collection: @messages%>
 </div>
 
 <%= form_with model: [@room, @message], class: "form", local: true do |f|%>
